@@ -1,19 +1,13 @@
-# Word Analyzer CLI
+# CLI calculator
 
-Простой CLI-инструмент для анализа текста.  
-Позволяет подсчитать общее количество слов, количество уникальных слов и вывести топ-N самых часто встречающихся слов.
+Простой консольный калькулятор с поддержкой базовых арифметических операций.
+.
 ---
 ## Запуск
-1. Ручной ввод текста
+Интерактивный режим 
 ```bash
 python main.py
 ```
-2. Запуск с аргументами
-```bash
-python main.py --file test.txt --top 10
-```
-	•	--file — путь к текстовому файлу
-	•	--top — количество слов в топе (по умолчанию 5)
 
 ## Тесты
 Запуск тестов через pytest:
@@ -30,23 +24,22 @@ make lint   # проверка типизации через mypy
 
 ## Технологии
 	•	Python 3.11+
-	•	argparse
-	•	tabulate
 	•	pytest
 	•	mypy
 
 ## Структура проекта.
 ```commandline
-word_analyzer/
+cli_calculator/
 ├── Makefile
 ├── README.md
-├── init.py
-├── analyzer.py          # Логика анализа текста
-├── cli.py               # CLI интерфейс приложения
-├── main.py              # Точка входа
-├── test.txt             # Пример текстового файла
-├── tests/               # Тесты
-│   └── test_analyzer.py
-└── utils/
-    └── logger.py        # Логирование
+├── __init__.py
+├── calculator.py          # Логика вычислений
+├── cli.py                 # CLI-интерфейс (App)
+├── main.py                # Точка входа
+├── utils/
+│   ├── __init__.py
+│   └── logger.py          # Настройка логирования
+└── tests/
+    ├── __init__.py
+    └── test_cli_calculator.py  # Юнит-тесты
 ```
