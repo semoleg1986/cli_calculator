@@ -1,4 +1,8 @@
 from calculator import Calculator
+from utils.logger import get_logger
+
+logger = get_logger(__name__)
+
 
 class App:
     """
@@ -49,6 +53,7 @@ class App:
                         operation = getattr(calc, command)
                         result = operation()
 
+                        logger.info(f"{a} {self.operator[command]} {b} = {result}")
                         print(f"Результат: {result}")
                     case _:
                         print(f'"{command}" такой команды нет')
@@ -58,7 +63,7 @@ class App:
                 print("Ошибка:", e)
             except Exception as e:
                 print("Неожиданная ошибка:", e)
-
+                logger.error("Неожиданная ошибка:", e)
 
     @staticmethod
     def _parse_args(a_str: str, b_str: str) -> tuple[float, float]:
@@ -77,4 +82,5 @@ class App:
 
     def exit(self):
         print("Программа завершена")
+        logger.info("Программа завершена")
         self.running = False
