@@ -1,5 +1,19 @@
-def main():
-    print("Hello from !")
+#!/usr/bin/env python3
+
+from cli import App
+
+
+def main() -> None:
+    """
+    Точка входа в программу CLI калькулятор.
+
+    Запускает CLI приложение для консоль калькулятора:
+    •	принимает команды: "add 2 3", "sub 10 5", "mul 3 4", "div 8 2";
+    •	использует модуль calc.py с функциями арифметики;
+    •	выводит результат в консоль.
+    """
+    app = App()
+    app.run()
 
 
 if __name__ == "__main__":
